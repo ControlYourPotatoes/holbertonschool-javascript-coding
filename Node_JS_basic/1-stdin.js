@@ -7,8 +7,14 @@ const rl = readline.createInterface({
 
 console.log('Welcome to Holberton School, what is your name?');
 
-rl.on('line', (input) => {
-  console.log(`Your name is: ${input}`);
+process.stdin.on('readable', () => {
+  const chunk = process.stdin.read();
+  if (chunk !== null) {
+    console.log(`Your name is: ${chunk}`);
+  }
+});
+
+process.stdin.on('end', () => {
   console.log('This important software is now closing');
   rl.close();
 });
