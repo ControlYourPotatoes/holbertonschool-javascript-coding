@@ -1,11 +1,6 @@
-const readline = require('readline');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-console.log('Welcome to Holberton School, what is your name?');
+process.stdin.setEncoding('utf8');
 
 process.stdin.on('readable', () => {
   const chunk = process.stdin.read();
